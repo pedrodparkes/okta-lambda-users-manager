@@ -1,0 +1,113 @@
+{
+    "resource": "/users/create",
+    "path": "/users/create",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "application/json",
+        "auth_field": "jkbalskjdnfalksdjfnlaksjdvnlakjsdnkjxzn",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "US",
+        "Content-Type": "application/json",
+        "Host": "vn8h9une8a.execute-api.us-east-2.amazonaws.com",
+        "User-Agent": "Okta Hook Service v1.0.0 - whowoiec6nnNzHaOe5d6",
+        "Via": "1.1 efe54e8b68e074d39b2ecd249f85100b.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "QJ5BWEN_KHL7yKGNF9zkmybifwHC7EIlKx4vVHkUmUr0kDfxRnOy5g==",
+        "X-Amzn-Trace-Id": "Root=1-60c0b4f1-1a578b7d3029abc15ef2f24d",
+        "X-Forwarded-For": "54.71.214.179, 70.132.31.133",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "application/json"
+        ],
+        "auth_field": [
+            "jkbalskjdnfalksdjfnlaksjdvnlakjsdnkjxzn"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-Country": [
+            "US"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "vn8h9une8a.execute-api.us-east-2.amazonaws.com"
+        ],
+        "User-Agent": [
+            "Okta Hook Service v1.0.0 - whowoiec6nnNzHaOe5d6"
+        ],
+        "Via": [
+            "1.1 efe54e8b68e074d39b2ecd249f85100b.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "QJ5BWEN_KHL7yKGNF9zkmybifwHC7EIlKx4vVHkUmUr0kDfxRnOy5g=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-60c0b4f1-1a578b7d3029abc15ef2f24d"
+        ],
+        "X-Forwarded-For": [
+            "54.71.214.179, 70.132.31.133"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "k64dgd",
+        "resourcePath": "/users/create",
+        "httpMethod": "POST",
+        "extendedRequestId": "AqE1yHMEiYcF_Vg=",
+        "requestTime": "09/Jun/2021:12:32:49 +0000",
+        "path": "/dev/users/create",
+        "accountId": "516176675572",
+        "protocol": "HTTP/1.1",
+        "stage": "dev",
+        "domainPrefix": "vn8h9une8a",
+        "requestTimeEpoch": 1623241969624,
+        "requestId": "45ac6811-f34f-4c87-9dad-3728d1086b4d",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "54.71.214.179",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Okta Hook Service v1.0.0 - whowoiec6nnNzHaOe5d6",
+            "user": null
+        },
+        "domainName": "vn8h9une8a.execute-api.us-east-2.amazonaws.com",
+        "apiId": "vn8h9une8a"
+    },
+    "body": "{\"eventType\":\"com.okta.event_hook\",\"eventTypeVersion\":\"1.0\",\"cloudEventsVersion\":\"0.1\",\"source\":\"https://gtl-dev.okta.com/api/v1/eventHooks/whowoiec6nnNzHaOe5d6\",\"eventId\":\"1d16ac18-cf89-4df5-9dc0-1eedd0ea1b6e\",\"data\":{\"events\":[{\"uuid\":\"c9708ba6-c91e-11eb-8528-8f43467fda6c\",\"published\":\"2021-06-09T12:32:43.073Z\",\"eventType\":\"user.lifecycle.unsuspend\",\"version\":\"0\",\"displayMessage\":\"Unsuspend Okta user\",\"severity\":\"INFO\",\"client\":{\"userAgent\":{\"rawUserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36\",\"os\":\"Mac OS X\",\"browser\":\"CHROME\"},\"zone\":\"null\",\"device\":\"Computer\",\"ipAddress\":\"18.185.231.31\",\"geographicalContext\":{\"city\":\"Frankfurt am Main\",\"state\":\"Hesse\",\"country\":\"Germany\",\"postalCode\":\"60313\",\"geolocation\":{\"lat\":50.1188,\"lon\":8.6843}},\"ipChain\":[{\"ip\":\"18.185.231.31\",\"geographicalContext\":{\"city\":\"Frankfurt am Main\",\"state\":\"Hesse\",\"country\":\"Germany\",\"postalCode\":\"60313\",\"geolocation\":{\"lat\":50.1188,\"lon\":8.6843}},\"version\":\"V4\"}]},\"actor\":{\"id\":\"00uwfl2jozh7PbB3P5d6\",\"type\":\"User\",\"alternateId\":\"vitalii.samotaiev@gtl.net\",\"displayName\":\"Vitalii Samotaiev\"},\"outcome\":{\"result\":\"SUCCESS\"},\"target\":[{\"id\":\"00uwno6yggbDwKwlH5d6\",\"type\":\"User\",\"alternateId\":\"whocares@ya.ru\",\"displayName\":\"Who Cares\"}],\"transaction\":{\"type\":\"WEB\",\"id\":\"YMC061hl9EVYIU0eOvh0wQAAA@I\",\"detail\":{}},\"debugContext\":{\"debugData\":{\"requestId\":\"YMC061hl9EVYIU0eOvh0wQAAA@I\",\"requestUri\":\"/api/v1/users/00uwno6yggbDwKwlH5d6/lifecycle/unsuspend\",\"targetEventHookIds\":\"whowoiec6nnNzHaOe5d6\",\"url\":\"/api/v1/users/00uwno6yggbDwKwlH5d6/lifecycle/unsuspend?\"}},\"legacyEventType\":\"core.user.config.user_status.unsuspended\",\"authenticationContext\":{\"authenticationStep\":0,\"externalSessionId\":\"102S38EY44wSQWyzpg78TbUJw\"},\"securityContext\":{\"asNumber\":16509,\"asOrg\":\"a100 row gmbh\",\"isp\":\"amazon.com%2C inc\",\"domain\":\"amazonaws.com\",\"isProxy\":false}}]},\"eventTime\":\"2021-06-09T12:32:49.444Z\",\"contentType\":\"application/json\"}",
+    "isBase64Encoded": false
+}

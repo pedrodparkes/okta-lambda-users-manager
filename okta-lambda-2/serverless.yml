@@ -1,0 +1,169 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: okta-lambda-2
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev # Set the default stage used. Default is dev
+  region: us-east-2 # Overwrite the default region used. Default is us-east-1
+  stackName: okta-lambda-2-${sls:stage} # Overwrite default CloudFormation stack name. Default is ${self:service}-${sls:stage}
+  apiName: okta-lambda-2-${sls:stage} # Overwrite default API Gateway name. Default is ${sls:stage}-${self:service}
+  profile: aws-profile # The default profile to use with this service
+  memorySize: 512 # Overwrite the default memory size. Default is 1024
+  # deploymentBucket:
+  #   name: com.serverless.${self:provider.region}.deploys # Overwrite the default deployment bucket
+  #   serverSideEncryption: AES256 # when using server-side encryption
+  #   tags: # Tags that will be added to each of the deployment resources
+  #     key1: value1
+  #     key2: value2
+  # deploymentPrefix: serverless # Overwrite the default S3 prefix under which deployed artifacts should be stored. Default is serverless
+  versionFunctions: false # Optional function versioning
+  # stackTags: # Optional CF stack tags
+  #   key: value
+  # stackPolicy: # Optional CF stack policy. The example below allows updates to all resources except deleting/replacing EC2 instances (use with caution!)
+  #   - Effect: Allow
+  #     Principal: '*'
+  #     Action: 'Update:*'
+  #     Resource: '*'
+  #   - Effect: Deny
+  #     Principal: '*'
+  #     Action:
+  #       - Update:Replace
+  #       - Update:Delete
+  #     Resource: '*'
+  #     Condition:
+  #       StringEquals:
+  #         ResourceType:
+  #           - AWS::EC2::Instance
+  apiGateway:
+    apiKeys:
+      - SecurityKeyOne
+      - name: SecurityKeyTwo
+        value: 64e09cfc-e5c2-d0a6-1dca-7c99ee978be2
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action: 
+            - 'sns:Publish'
+          Resource: 
+            - Ref: OktaSNSTopic
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+#package:
+#  patterns:
+#    - '!exclude-me.py'
+#    - '!exclude-me-dir/**'
+#    - include-me.py
+#    - include-me-dir/**
+
+functions:
+  UserCreate:
+    name: okta-lambda-UserCreate
+    handler: handler.UserCreate
+    description: Create User
+    environment:
+      DEBUG: false
+    events: # The Events that trigger this Function
+      - http: 
+          method: POST
+          path: users/create
+          private: true
+
+  UserDelete:
+    name: okta-lambda-UserDelete
+    handler: handler.UserDelete
+    description: Delete User
+    environment:
+      DEBUG: false
+    events:
+      - http: 
+          method: POST
+          path: users/delete
+          private: true
+
+  StreamToSNS:
+    name: okta-lambda-StreamToSNS
+    handler: handler.StreamToSNS
+    description: Stream okta events to SNS
+    environment:
+      DEBUG: false
+      SNS_TOPIC_ARN:
+        'Fn::ImportValue': '${self:service}:OktaSNSTopicArn'
+    events:
+      - http: 
+          method: POST
+          path: users/sns
+          private: true
+
+  UserCreateVerify:
+    name: okta-lambda-UserCreateVerify
+    handler: handler.Verify
+    description: Verify Create User Endpoint
+    environment:
+      DEBUG: false
+    events:
+      - http: 
+          method: GET 
+          path: users/create
+          private: true
+
+  UserDeleteVerify:
+    name: okta-lambda-UserDeleteVerify
+    handler: handler.Verify
+    description: Verify Create User Endpoint
+    environment:
+      DEBUG: false
+    events:
+      - http: 
+          method: GET 
+          path: users/delete
+          private: true
+
+  StreamToSNSVerify:
+    name: okta-lambda-StreamToSNSVerify
+    handler: handler.Verify
+    description: Verify Stream okta events to SNS
+    environment:
+      DEBUG: false
+    events:
+      - http: 
+          method: GET
+          path: users/sns
+          private: true
+
+resources:
+  Resources:
+    OktaSNSTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: Okta-Stream-Topic
+  Outputs:
+    OktaSNSTopicArn:
+      Description: "Description for the output"
+      Value: !Ref OktaSNSTopic
+      Export:
+        Name: '${self:service}:OktaSNSTopicArn'

@@ -1,0 +1,49 @@
+{
+  "eventType": "com.okta.event_hook",
+  "eventTypeVersion": "1.0",
+  "cloudEventsVersion": "0.1",
+  "contentType": "application/json",
+  "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
+  "eventTime": "2019-03-27T16:59:53.032Z",
+  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "data": {
+    "events": [
+      {
+        "version": "0",
+        "severity": "INFO",
+        "client": {
+          "zone": "OFF_NETWORK",
+          "device": "Unknown",
+          "userAgent": {
+            "os": "Unknown",
+            "browser": "UNKNOWN",
+            "rawUserAgent": "UNKNOWN-DOWNLOAD"
+          },
+          "ipAddress": "12.97.85.90"
+        },
+        "actor": {
+          "id": "00u1qw6mqitPHM8AJ0g7",
+          "type": "User",
+          "alternateId": "admin@example.com",
+          "displayName": "Example Admin"
+        },
+        "outcome": {
+          "result": "SUCCESS"
+        },
+        "uuid": "f790999f-fe87-467a-9880-6982a583986c",
+        "published": "2018-03-28T22:23:07.777Z",
+        "eventType": "user.session.start",
+        "displayMessage": "User login to Okta",
+        "transaction": {
+          "type": "WEB",
+          "id": "V04Oy4ubUOc5UuG6s9DyNQAABtc"
+        },
+        "legacyEventType": "core.user_auth.login_success",
+        "authenticationContext": {
+          "authenticationStep": 0,
+          "externalSessionId": "1013FfF-DKQSvCI4RVXChzX-w"
+        }
+      }
+    ]
+  }
+}
